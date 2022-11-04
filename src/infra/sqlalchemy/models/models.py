@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Boolean, Integer, String
+from sqlalchemy import Column, Boolean, Integer, String, Float
 from src.infra.sqlalchemy.config.database import Base
 
 class User(Base):
@@ -14,8 +14,8 @@ class User(Base):
     cnpj = Column(String)
     email = Column(String)
 
-class Product(Base):
-    __tablename__ = 'products'
+class House(Base):
+    __tablename__ = 'houses'
     
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
@@ -26,3 +26,17 @@ class Product(Base):
     restroom = Column(Integer)
     furniture = Column(Boolean)
     available = Column(Boolean)
+    
+class Announcement(Base):
+    __tablename__ = 'announcements'
+    
+    id = Column(Integer, primary_key=True, index=True)
+    type = Column(String)
+    rent_period = Column(String)
+    
+class Evaluation(Base):
+    __tablename__ = 'evaluations'
+    
+    id = Column(Integer, primary_key=True, index=True)
+    comment = Column(String)
+    rating = Column(Float)

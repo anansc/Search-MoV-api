@@ -17,7 +17,7 @@ class User(BaseModel):
         orm_mode = True
 
 #Criando a classe produtos
-class Product(BaseModel):
+class House(BaseModel):
     id: Optional[str] = None
     name: str
     type: str
@@ -30,18 +30,3 @@ class Product(BaseModel):
     
     class Config:
         orm_mode = True
-
-
-#Criando a classe anúncios
-class Announcement(BaseModel):
-    id: str
-    owner_id: User
-    product_id: Product
-    type: list
-    rent_period: str
-
-#Criando a classe de transação/negociação
-class Negotiation(BaseModel):
-    id: str
-    user: User
-    product: Product
